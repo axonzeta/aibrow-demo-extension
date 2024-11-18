@@ -1,0 +1,40 @@
+{
+  "name": "aibrow-demo-extension",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "webpack --mode=development",
+    "watch": "webpack watch --mode=development",
+    "test": "npx standard",
+    "dev": "webpack --mode=development",
+    "prod": "webpack --mode=production"
+  },
+  "author": "Thomas Beverley<tom@aibrow.ai>",
+  "license": "MPL-2.0",
+  "description": "",
+  "dependencies": {
+    "@aibrow/extension": "^1.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "autoprefixer": "^10.4.20",
+    "babel-loader": "^9.2.1",
+    "case-sensitive-paths-webpack-plugin": "^2.4.0",
+    "circular-dependency-plugin": "^5.2.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "standard": "^17.1.2",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "standard": {
+    "globals": [
+      "chrome"
+    ]
+  }
+}
