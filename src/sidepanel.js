@@ -1,6 +1,5 @@
-import { ai } from '@aibrow/extension'
+import ai from '@aibrow/extension'
 
-window.twb=ai
 const $model = document.getElementById('model')
 const $streaming = document.getElementById('streaming')
 const $input = document.getElementById('input')
@@ -97,17 +96,18 @@ $go.addEventListener('click', async () => {
 
     {
       const logRes = log('Check model availability...')
-      switch ((await ai.languageModel.capabilities(sessionOpts)).available) {
-        case 'readily':
+      switch ((await ai.LanguageModel.availability(sessionOpts))) {
+        case 'available':
           logRes(true)
           break
-        case 'after-download':
+        case 'downloading':
+        case 'downloadable':
           $progressBox.classList.remove('d-none')
           $progress.style.width = '0%'
           $progress.innerText = '0%'
           logRes('Download required')
           break
-        case 'no':
+        case 'unavailable':
           logRes(false)
           return
       }
@@ -125,7 +125,7 @@ $go.addEventListener('click', async () => {
       })
     } else {
       session = await logTask('Creating session...', async (log) => {
-        const res = await ai.assistant.create(sessionOpts)
+        const res = await ai.LanguageModel.create(sessionOpts)
         log(true)
         return res
       })

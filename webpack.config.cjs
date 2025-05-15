@@ -3,8 +3,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 const CircularDependencyPlugin = require('circular-dependency-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const autoprefixer = require('autoprefixer')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = function (env, args) {
   const outDir = path.join(__dirname, 'out')
