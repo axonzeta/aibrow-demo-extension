@@ -140,8 +140,10 @@ $go.addEventListener('click', async () => {
         return stream
       })
 
+      let buffer = ''
       for await (const chunk of stream) {
-        $messageBody.innerText = chunk
+        buffer += chunk
+        $messageBody.innerText = buffer
       }
     } else {
       const output = await logTask('Prompting...', async (log) => {
